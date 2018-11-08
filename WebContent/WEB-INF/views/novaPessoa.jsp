@@ -11,7 +11,7 @@
 	
 	<br>
 	<br>
-	<form action="inserirPessoaFoto64" enctype="multipart/form-data" >
+	<form action="inserirPessoa" method="post">
 		Nome <br><input type="text" name="nome" id="nome"
 						maxlength="60" placeholder="nome"/><br/>
 		Sobrenome <br><input type="text" name="sobrenome" id="sobrenome"
@@ -46,7 +46,7 @@
 						maxlength="60" placeholder="Estado"/><br/>
 		Pais <br><input type="text" name="endereco.pais" id="pais"
 						maxlength="60" placeholder="Pais"/><br/>
-		
+		<!--
 		<div class="row">
 				<div>
 					<video id="video" width="640" height="480" autoplay></video>
@@ -87,11 +87,11 @@
 										});
 					</script>
 				</div>
-				<!-- <div id="foto">
+				 <div id="foto">
 					<form:errors path="file" cssStyle="color:red" />
-				</div> -->
+				</div> 
 			</div>
-			
+			-->
 			<button type="submit" class="btn btn-primary" name="acao"
 						value="criar">Salvar</button>
 		

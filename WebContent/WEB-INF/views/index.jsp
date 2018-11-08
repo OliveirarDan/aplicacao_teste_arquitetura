@@ -7,6 +7,7 @@
 <body>
 	<h3>Menu - Identificar Pessoa</h3>
 	<a href="novaPessoa.jsp">Cadastre uma pessoa </a>
+	<input type="submit" value="inserir nova pessoa" action="novaPessoa"/>
 	<br>
 	<br>
 	<form action="pegaFoto64" enctype="multipart/form-data" >
