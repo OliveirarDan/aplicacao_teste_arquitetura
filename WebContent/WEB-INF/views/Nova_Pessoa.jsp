@@ -11,7 +11,7 @@
 	
 	<br>
 	<br>
-	<form action="inserirPessoaFoto64" enctype="multipart/form-data" >
+	<form action="inserirPessoa" method="post">
 		Nome <br><input type="text" name="nome" id="nome"
 						maxlength="60" placeholder="nome"/><br/>
 		Sobrenome <br><input type="text" name="sobrenome" id="sobrenome"
@@ -80,16 +80,15 @@
 											var input = document
 													.createElement('input');
 											input.type = "text";
-											input.name = "file";
+											input.name = "foto";
 											input.value = canvas.toDataURL();
 											document.getElementById("foto")
 													.appendChild(input);
 										});
 					</script>
 				</div>
-				<!-- <div id="foto">
-					<form:errors path="file" cssStyle="color:red" />
-				</div> -->
+				<div id="foto" name="foto">
+				</div>
 			</div>
 			
 			<button type="submit" class="btn btn-primary" name="acao"

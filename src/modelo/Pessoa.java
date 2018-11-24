@@ -1,24 +1,7 @@
 package modelo;
 
-import java.io.File;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name="pessoa")
 public class Pessoa extends Azure {
 
-	// Atributos
-	@Id
-	@NotNull 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idPessoa;
 	private String nome;
 	private String sobrenome;
@@ -30,29 +13,16 @@ public class Pessoa extends Azure {
 	private String telResidencial;
 	private String telSecundario;
 	private String codAzure;
-	private File foto;
-	public File getFoto() {
-		return foto;
-	}
-
-
-	public void setFoto(File foto) {
-		this.foto = foto;
-	}
-	
-	@NotNull
-	@OneToOne
-	@JoinColumn(name="Endereco_idEndereco")
+	private String foto;
 	private Endereco endereco;
 
 	// Construtores
 	public Pessoa() {
-		// TODO Auto-generated constructor stub
 	}
 
 	
 	public Pessoa(String codAzure, int idPessoa, String nome, String sobrenome, String cpf, String registrosec, String email,
-			String dataNascimento, String genero, String telResidencial, String telSecundario, Endereco endereco) {
+			String dataNascimento, String genero, String telResidencial, String telSecundario, Endereco endereco, String foto) {
 		super(codAzure);
 		this.idPessoa = idPessoa;
 		this.nome = nome;
@@ -65,6 +35,7 @@ public class Pessoa extends Azure {
 		this.telResidencial = telResidencial;
 		this.telSecundario = telSecundario;
 		this.endereco = endereco;
+		this.foto = foto;
 	}
 
 	// Métodos Getters e Setters
@@ -165,15 +136,26 @@ public class Pessoa extends Azure {
 	public void setCodAzure(String codAzure) {
 		this.codAzure = codAzure;
 	}
+	
+	public String getFoto()
+	{
+		return foto;
+	}
 
 
-	// Método toString
+	public void setFoto(String foto)
+	{
+		this.foto = foto;
+	}
+	
+
+
 	@Override
 	public String toString() {
 		return "Pessoa [idPessoa=" + idPessoa + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf
 				+ ", registrosec=" + registrosec + ", email=" + email + ", dataNascimento=" + dataNascimento
 				+ ", genero=" + genero + ", telResidencial=" + telResidencial + ", telSecundario=" + telSecundario
-				+ ", endereco=" + endereco + "]";
+				+ ", codAzure=" + codAzure + ", foto=" + foto + ", endereco=" + endereco + "]";
 	}
 
 }
