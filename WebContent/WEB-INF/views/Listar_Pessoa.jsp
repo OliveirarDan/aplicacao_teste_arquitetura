@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
-<html>
+<html lang="pt">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="./resources/img/acessibilidade.jpg">
@@ -35,7 +34,7 @@
 					<span class="navbar-toggler-bar"></span>
 					<span class="navbar-toggler-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="index.html">Início</a>
+	            <a class="navbar-brand" href="index.html">InÃ­cio</a>
 			</div>
 	        <div class="collapse navbar-collapse" id="navbarToggler">
 	            <ul class="navbar-nav ml-auto">
@@ -43,47 +42,44 @@
                    		<li class="nav-item"><a href="novapessoa" target="" class="btn btn-info btn-round">cadastrar pessoa</a></li>
 				</ul>
 	        </div>
-		</div>	
+		</div>
     </nav>
-    
-    <!-- Modal -->
+     <!-- Modal -->
             <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title" id="modalLabel">Excluir Filme</h4>
+                            <h4 class="modal-title" id="modalLabel">Excluir Pessoa</h4>
                         </div>
                         <div class="modal-body">
-                            Deseja realmente excluir este filme?
+                            Deseja realmente excluir esta pessoa?
                         </div>
                         <div class="modal-footer">
-                            <form action="excluir_filme" method="post">
-                                <input type="hidden" name="id" id="id_excluir" />
+                            <form action="excluirPessoa" method="delete">
+                                <input type="hidden" name="idPessoa" id="id_excluir" />
                                 <button type="submit" class="btn btn-primary" name="acao" value="Excluir">Sim</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">NÃ£o</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- /.modal -->
-            <!-- Barra superior com os menus de navegação -->
-			<c:import url="Menu.jsp"/>
+            <!-- Barra superior com os menus de navegaÃ§Ã£o -->
+		
             <!-- Container Principal -->
-            <div id="main" class="container">
+            <div id="main" class="container" style="margin-top:100px">
                 <form action="listar_filmes" method="post">
                     <div id="top" class="row">
-                        <br></br><br></br>
-                        <div class="col-md-3">
-                        <br></br><br>
-                            <h3>Pessoas Cadastradas</h3>
+                        <div >
+                            <h2>Pessoas Cadastradas</h2>
                         </div>
 
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="input-group h2">
-                                <input name="chave" class="form-control" id="search" type="text" placeholder="Pesquisar Filmes (deixe vazio para trazer todos)">
+                                <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar (deixe vazio para trazer todos)">
                                 <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit" name="acao" value="listar">
                     <span class="glyphicon glyphicon-search"></span>
@@ -93,49 +89,44 @@
                         </div>
 
                         <div class="col-md-3">
-                            <a href="novo_filme" class="btn btn-primary pull-right h2">Novo Filme</a>
-                        </div>
+                            <a href="nova_pessoa" class="btn btn-primary pull-right h2">Cadastrar Pessoa</a>
+                        </div> -->
                     </div>
                     <!-- /#top -->
                 </form>
                 <hr />
-                <c:if test="${not empty lista}">
+                <c:if test="${not empty pessoas}">
                 <div id="list" class="row">
-
                     <div class="table-responsive col-md-12">
                         <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Título</th>
-                                    <th>Direção</th>
-                                    <th>Lançamento</th>
-                                    <th>Gênero</th>
-                                    <th class="actions">Ações</th>
+                                    <th>Nome</th>
+                                    <th>Sobrenome</th>
+                                    <th>Email</th>
+                                    <th class="actions">AÃ§Ãµes</th>
                                 </tr>
                             </thead>
                             <tbody>
-          					<c:forEach var="filme" items="${lista}">
+          					<c:forEach var="pessoa" items="${pessoas}">
                                        <tr>
                                             <td>
-                                               ${filme.id }
+                                               ${pessoa.idPessoa}
                                             </td>
                                             <td>
-                                                ${filme.titulo }
+                                                ${pessoa.nome}
                                             </td>
                                             <td>
-                                                ${filme.diretor }
+                                                ${pessoa.sobrenome}
                                             </td>
                                             <td>
-                                                <fmt:formatDate value="${filme.dataLancamento}" pattern="dd/MM/yyyy"/>
-                                            </td>
-                                            <td>
-                                                ${filme.genero.nome}
+                                                ${pessoa.email}
                                             </td>
                                             <td class="actions">
-                                                <a class="btn btn-success btn-xs" href="visualizar_filme?id=${filme.id}">Visualizar</a>
-                                                <a class="btn btn-warning btn-xs" href="alterar_filme?id=${filme.id}">Editar</a>
-                                                <button id="btn${filme.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-filme="${filme.id }">Excluir</button>
+                                                <a class="btn btn-success btn-xs" href="visualizar_pessoa?id=${pessoa.idPessoa}">Visualizar</a>
+                                          	   <%--  <a class="btn btn-warning btn-xs" href="editar_pessoa?id=${pessoa.idPessoa}">Editar</a> --%>
+                                                <button id="btn${pessoa.idPessoa}%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-filme="${pessoa.idPessoa}">Excluir</button>
                                             </td>
                                         </tr>
                             </c:forEach>
@@ -147,30 +138,14 @@
                 </div>
                 <!-- /#list -->
 
-                <div id="bottom" class="row">
-                    <div class="col-md-12">
-                        <!-- paginação ainda não foi implementada -->
-                        <ul class="pagination">
-                            <li class="disabled"><a>&lt; Anterior</a>
-                            </li>
-                            <li class="disabled"><a>1</a>
-                            </li>
-                            <li><a href="#">2</a>
-                            </li>
-                            <li><a href="#">3</a>
-                            </li>
-                            <li class="next"><a href="#" rel="next">Próximo &gt;</a>
-                            </li>
-                        </ul>
-                        <!-- /.pagination -->
-                    </div>
-                </div>
                 </c:if>
                 <!-- /#bottom -->
             </div>
             <!-- /#main -->
-            <script src="js/jquery.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
+            <script src="./resources/js/jquery-3.2.1.js" type="text/javascript"></script>
+			<script src="./resources/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+			<script src="./resources/js/tether.min.js" type="text/javascript"></script>
+			<script src="./resources/js/bootstrap.min.js" type="text/javascript"></script>
             <script type="text/javascript">
                 $("#delete-modal").on('show.bs.modal', function(event) {
                     var button = $(event.relatedTarget); //botao que disparou a modal
@@ -178,6 +153,5 @@
                     $("#id_excluir").val(recipient);
                 });
             </script>
-
 </body>
 </html>

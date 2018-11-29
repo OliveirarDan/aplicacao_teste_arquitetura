@@ -1,6 +1,6 @@
 package modelo;
 
-public class Pessoa extends Azure {
+public class Pessoa {
 
 	private int idPessoa;
 	private String nome;
@@ -23,7 +23,8 @@ public class Pessoa extends Azure {
 	
 	public Pessoa(String codAzure, int idPessoa, String nome, String sobrenome, String cpf, String registrosec, String email,
 			String dataNascimento, String genero, String telResidencial, String telSecundario, Endereco endereco, String foto) {
-		super(codAzure);
+		//super(codAzure);
+		this.codAzure = codAzure;
 		this.idPessoa = idPessoa;
 		this.nome = nome;
 		this.sobrenome = sobrenome;

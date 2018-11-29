@@ -39,9 +39,14 @@
 			</div>
 	        <div class="collapse navbar-collapse" id="navbarToggler">
 	            <ul class="navbar-nav ml-auto">
-					    <li class="nav-item"><a href="listarpessoa" class="nav-link"><i class=""></i> Listar Pessoas</a></li>
-                   		<li class="nav-item"><a href="novapessoa" target="" class="btn btn-info btn-round">cadastrar pessoa</a></li>
-				</ul>
+					                                   
+					    <li class="nav-item">
+                        <a href="listarpessoa" class="nav-link"><i class=""></i> Listar Pessoas</a>
+                    </li>
+                    <li class="nav-item">
+						<a href="novapessoa" class="btn btn-info btn-round">cadastrar pessoa</a>
+					</li>
+	            </ul>
 	        </div>
 		</div>
     </nav>
@@ -59,7 +64,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text" name='nome' class="form-control" placeholder="nome" value="Teste">
+	                                        <input type="text" name='nome' class="form-control" placeholder="Primeiro nome" maxlength="15">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -68,36 +73,36 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text" name='sobrenome' class="form-control" placeholder="sobrenome" value="Teste">
+	                                        <input type="text" name='sobrenome' class="form-control" placeholder="Sobrenome" maxlength="30">
 	                                    </div>
                                     </div>
 									
                                     <div class="col-md-6">
-                                        <label>Cpf</label>
+                                        <label>CPF</label>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" name='cpf' class="form-control" placeholder="cpf" value="123">
+											<input type="number" name='cpf' class="form-control" placeholder="999.999.999-99" maxlength="11">
 										</div>
                                     </div>
 									
 									<div class="col-md-6">
-                                        <label>RG ou RE</label>
+                                        <label>RG ou RNE</label>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" name='registrosec' class="form-control" placeholder="rg ou re" value="321">
+											<input type="text" name='registrosec' class="form-control" placeholder="RG ou RNE" >
 										</div>
                                     </div>
 									<div class="col-md-6">
-                                        <label>Email</label>
+                                        <label>E-mail</label>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" name='email' class="form-control" placeholder="email" value="teste@mail.com">
+											<input type="text" name='email' class="form-control" placeholder="email@email.com" >
 										</div>
                                     </div>
 									
@@ -107,7 +112,7 @@
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text"  name='dataNascimento'class="form-control" placeholder=" data de nascimento"  value='01/01/2001'>
+											<input type="text"  name='dataNascimento'class="form-control" placeholder="99/99/9999">
 										</div>
                                     </div>
 									
@@ -117,7 +122,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='genero' class="form-control" placeholder="genero" value="F">
+	                                        <input type="text"  name='genero' class="form-control" placeholder="M ou F" maxlength="1">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -126,7 +131,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='telResidencial' class="form-control" placeholder="telefone residencial" value="12345678">
+	                                        <input type="text"  name='telResidencial' class="form-control" placeholder="(00)0000-0000" maxlength="10">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -135,7 +140,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='telSecundario' class="form-control" placeholder="telefone secundario" value="87654321">
+	                                        <input type="text"  name='telSecundario' class="form-control" placeholder="(99)99999-9999" maxlength="11">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -144,16 +149,16 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.cep' class="form-control" placeholder="CEP" value="02145854">
+	                                        <input type="text"  name='endereco.cep' class="form-control" placeholder="99999-999" maxlength="8">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
-                                        <label>	Tipo de longradouro</label>
+                                        <label>	Tipo de logradouro</label>
 										<div class="input-group">
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.tipoDeLogradouro' class="form-control" placeholder="nome" value="Rua">
+	                                        <input type="text"  name='endereco.tipoDeLogradouro' class="form-control" placeholder="Avenida, Rua, etc" maxlength="10">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -162,16 +167,16 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.endereco' class="form-control" placeholder="endereço" value="Teste">
+	                                        <input type="text"  name='endereco.endereco' class="form-control" placeholder="Nome de logradouro definido acima" maxlength="30">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
-                                        <label>Numero</label>
+                                        <label>Número</label>
 										<div class="input-group">
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.numero' class="form-control" placeholder="numero" value="1">
+	                                        <input type="number"  name='endereco.numero' class="form-control" placeholder="999" maxlength="6">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -180,7 +185,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.bairro' class="form-control" placeholder="bairro" value="Teste">
+	                                        <input type="text"  name='endereco.bairro' class="form-control" placeholder="Digite bairro" maxlength="10">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -189,7 +194,7 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.cidade' class="form-control" placeholder="cidade" value="Teste">
+	                                        <input type="text"  name='endereco.cidade' class="form-control" placeholder="Digite cidade" maxlength="15">
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
@@ -198,16 +203,16 @@
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.estado' class="form-control" placeholder="estado" value="Teste"> 
+	                                        <input type="text"  name='endereco.estado' class="form-control" placeholder="Ex: SP" maxlength="2"> 
 	                                    </div>
                                     </div>
 									<div class="col-md-6">
-                                        <label>Pais</label>
+                                        <label>País</label>
 										<div class="input-group">
 	                                        <span class="input-group-addon">
 	                                           <i class="nc-icon nc-single-02"></i>
 	                                        </span>
-	                                        <input type="text"  name='endereco.pais' class="form-control" placeholder="pais" value="Teste">
+	                                        <input type="text"  name='endereco.pais' class="form-control" placeholder="Ex: Brasil" maxlength="10">
 	                                    </div>
                                     </div>
 										
@@ -216,10 +221,11 @@
 								 
 								 <hr>
 								 
-					<center> <div id="capturaFoto">
+				<center> 
+				<div id="capturaFoto">
 				<div>
-					<video id="video" width="640" height="480" autoplay></video>
-					<input type="button" id="snap" title="Capturar Foto" value="Captura Imagem"></center>
+					<video id="video" width="640" height="480" autoplay></video> </br></br>
+					<input type="button" id="snap" title="Capturar Foto" value="Captura Imagem"> </br></br>
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<script type="text/javascript">			
 				// Grab elements, create settings, etc.
@@ -259,6 +265,7 @@
 									    <button type="button" class="btn btn-outline-danger btn-round">Cancelar</button>
                                     </div>
                                 </div>
+                                </center>
                             </form>
                         </div>
                     </div>
