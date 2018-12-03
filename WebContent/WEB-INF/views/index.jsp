@@ -119,7 +119,7 @@
 					context.drawImage(video, 0, 0, 640, 480);
 					var input = document.createElement('input');
 					input.type = "text";
-					input.name = "file";
+					input.name = "foto";
 					input.value = canvas.toDataURL();
 					document.getElementById("foto").appendChild(input);
 				});
@@ -133,7 +133,7 @@
 		
 			<div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <button type="submit" class="btn btn-outline-info btn-round">Salvar</button>
+                    <button type="submit" class="btn btn-outline-info btn-round">Identificar</button>
 				    <button type="button" class="btn btn-outline-danger btn-round">Cancelar</button>
                 </div>
             </div>

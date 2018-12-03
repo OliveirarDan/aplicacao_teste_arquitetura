@@ -50,7 +50,7 @@ public class MeuController {
 	
 	@RequestMapping("/listarpessoa")
 	public String listarPessoa(Model model) {
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa";
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -82,7 +82,7 @@ public class MeuController {
 			Model model) {
 
 		RestTemplate rt = new RestTemplate();
-		String url = String.format("http://localhost:8080/alfapinovo/pegaFoto64/%s/%s", 
+		String url = String.format("http://localhost:8080/alfapi_hibernate/pegaFoto64/%s/%s", 
 				pessoa.getNome(),
 				pessoa.getSobrenome());
 		pessoa = rt.getForObject(url, Pessoa.class);
@@ -95,7 +95,7 @@ public class MeuController {
 	public String criarPessoaFoto64(@Valid Pessoa pessoa,
 			@RequestParam(required = false, name = "file") String string64, Model model) {
 		RestTemplate rt = new RestTemplate();
-		String url = String.format("http://localhost:8080/alfapinovo/inserirPessoaFoto64/%s/%s/%s/%s/%s/%s/%s/%s/%s/%o", 
+		String url = String.format("http://localhost:8080/alfapi_hibernate/inserirPessoaFoto64/%s/%s/%s/%s/%s/%s/%s/%s/%s/%o", 
 				pessoa.getNome(),
 				pessoa.getSobrenome(),
 				pessoa.getCpf(),
@@ -115,7 +115,7 @@ public class MeuController {
 	public String inserirPessoa(Pessoa pessoa, BindingResult erros, Model model)
 	{
 		System.out.println(pessoa.toString());
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa";
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -179,7 +179,7 @@ public class MeuController {
 	@RequestMapping("/identificaPessoa")
 	public String identificaPessoa(Pessoa pessoa, BindingResult erros, Model model)
 	{
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa/identifica";
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -207,13 +207,17 @@ public class MeuController {
 				final ObjectNode node = new ObjectMapper().readValue(json, ObjectNode.class);
 				if (node.has("idPessoa"))
 				{
+					Gson gson = new Gson();
+					Pessoa _pessoa = gson.fromJson(json, Pessoa.class);
+					
+					model.addAttribute("pessoa", _pessoa);
 					System.out.println(node.get("idPessoa").toString());
 				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "index";
+		return "visualizar_pessoa";
 	}
 	
 	@RequestMapping("/excluirPessoa")
@@ -221,7 +225,7 @@ public class MeuController {
 	{
 		
 		System.out.println(pessoa.toString());
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa/"+pessoa.getIdPessoa();
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -256,7 +260,7 @@ public class MeuController {
 	{
 		
 		System.out.println(id);
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa/"+id;
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -296,7 +300,7 @@ public class MeuController {
 	{
 		
 		System.out.println(id);
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa/"+id;
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
@@ -335,7 +339,7 @@ public class MeuController {
 	{
 		
 		System.out.println(pessoa.toString());
-		String url = "http://localhost:8080/alfapinovo/";
+		String url = "http://localhost:8080/alfapi_hibernate/";
 		String endpoint = "rest/pessoa";
 		HttpClient httpclient = new DefaultHttpClient();
 		try {

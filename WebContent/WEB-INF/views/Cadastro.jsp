@@ -247,7 +247,7 @@
 					context.drawImage(video, 0, 0, 640, 480);
 					var input = document.createElement('input');
 					input.type = "text";
-					input.name = "file";
+					input.name = "foto";
 					input.value = canvas.toDataURL();
 					document.getElementById("foto").appendChild(input);
 				});
