@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.http.util.EntityUtils;
-import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.Gson;
 
 import modelo.Medico;
 
@@ -63,9 +63,16 @@ public class MeuController {
 	     
 		// response
 		
-			
+	     Gson g = new Gson();
+	     String json = g.toJson(response);
+
+	     //ArrayList<Medico> p =  g.fromJson(response.toString(), Medico.class);
+	     ObjectMapper objectMapper = new ObjectMapper();
+	     System.out.println(json);
+	     List<Medico> items = objectMapper.readValue(response.toString(),objectMapper.getTypeFactory().constructParametricType(List.class, Object.class));
 	     
 	     
+	     model.addAttribute("ms", items);
 		 //	
 		 
 		 

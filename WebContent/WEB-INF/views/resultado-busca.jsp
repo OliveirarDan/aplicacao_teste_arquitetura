@@ -13,27 +13,28 @@
 
 <body>
 	<!--================ Header Area =================-->
-	${medicos}	
+<%-- 	${medicos}	 --%>
 	
 	
 	
-<%-- 	</c:forEach> --%>
-<!-- 	<div class="row"> -->
-<%-- 				<c:forEach items="${medicos}" var="m"> --%>
-<!-- 					<form class="contact_form" action="selecionaMedico" method="get" -->
-<!-- 						id="selecionaMedico"> -->
-<!-- 						<div class="wrapper col-md-4 col-4"> -->
-<!-- 							<div class="card radius shadowDepth1"> -->
-<!-- 								<div class="row card-line card__padding"> -->
-<!-- 									<div class="border-tlr-radius"> -->
-<%-- 										<img src="${m.foto}" alt="image" --%>
-<!-- 											class="border-tlr-radius foto-card-circle"> -->
-<!-- 									</div> -->
-<!-- 									<div class="card-head-title"> -->
-<%-- 										<a>${m.nome} ${m.sobrenome}</a></br> <a>CRM: ${m.crm}</a> --%>
-<!-- 									</div> -->
-<%-- 									<input type="hidden" id="id" name="id" value="${m.id}"> --%>
-<!-- 								</div> -->
+	
+	<div class="row">
+				<c:forEach items="${ms}" var="m">
+					<form class="contact_form" action="selecionaMedico" method="get"
+						id="selecionaMedico">
+						<div class="wrapper col-md-4 col-4">
+							<div class="card radius shadowDepth1">
+								<div class="row card-line card__padding">
+									
+									<div class="card-head-title">
+										Nome: ${m.nome}  |  Sobrenome:  ${m.sobrenome}  |  CRM: ${m.crm}
+										
+										<br>
+										<hr>
+										<br>
+									</div>
+									
+								</div>
 <!-- 								<div class="card__content card-line card__padding"> -->
 <!-- 									<div class="row card__meta"> -->
 <!-- 										<div class="col-md-12 col-12"> -->
@@ -71,10 +72,10 @@
 <!-- 								</div> -->
 <!-- 								<button class="card-button" type="submit" name="selecionaMedico" -->
 <!-- 									value="selecionaMedico">Visualizar</button> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</form> -->
-<%-- 				</c:forEach> --%>
+							</div>
+						</div>
+					</form>
+				</c:forEach>
 			</div>
 	
 	
